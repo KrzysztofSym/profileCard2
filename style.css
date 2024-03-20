@@ -1,0 +1,282 @@
+/* Add CSS here */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+/*===== VARIABLES CSS =====*/
+
+:root {
+    --h1-fs: 2rem;    --h1-fs-media: 3rem; 
+    --h2-fs: 1.5rem;  --h2-fs-media: 2rem;
+    --h3-fs: 1.3rem;  --h3-fs-media: 1.8rem;
+    --h4-fs: 1.1rem;  --h4-fs-media: 1.5rem;
+    --p-fs: .8rem;    --p-fs-media: 1.1rem;
+    --a-fs: .7rem;    --a-fs-media: 1.1rem;
+    --li-fs: .7rem;   --li-fs-media: 1.1rem;    
+
+    --clr-bg-main: #a0c9f8;
+    --clr-bg-pri: #2d2459;
+    --clr-bg-sec: #b4d4fb;
+    --clr-acc-main: #00bea6;
+    --clr-acc-pri: #4393f5;
+    --clr-acc-sec:  #3676c4;
+    --clr-acc-thi: #2e67a9;
+    --clr-acc-four: #ad0000;
+    --clr-acc-fif: #e03333;
+    --clr-text-main: #121637;
+    --clr-text-pri: #36454F;  
+    
+    --shadow-color: #33cbb8;    
+    --main-ff: 'Poppins', sans-serif;
+  }
+
+/*===== BASE =====*/
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--main-ff);
+    font-size: var(--p-fs);
+    background: var(--clr-bg-main);
+    color: var(--clr-text-main);
+    width: 100%;
+    min-height: 100vh;
+}   
+
+h1, h2, h3, h4,
+p, a, li {
+    margin: 0;
+}
+
+h1 {font-size: var(--h1-fs);}
+h2 {font-size: var(--h2-fs);}
+h3 {font-size: var(--h3-fs);}
+h4 {font-size: var(--h4-fs);}
+
+p, a, li {font-size: var(--p-fs);}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-text-main);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+    /* animation: scaleUp 1s ease-in-out;
+    transform-origin: center center; */
+
+/*===== BUTTONS =====*/
+
+.btn {
+    display: inline-block;
+    background-color:  var(--clr-acc-pri);
+    color: #fff;
+    padding: .5rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.btn:last-of-type {
+    background-color: transparent;
+    color: var(--clr-acc-pri);
+}
+  
+.btn:first-of-type:hover {
+    background-color: var(--clr-acc-sec);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+}
+
+.btn:last-of-type:hover {
+    color: var(--clr-acc-thi);
+}
+
+.btn:active {
+    scale: .97;
+}
+
+/*===== PROJECT CSS =====*/
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: relative;
+    animation: scaleUp 1s ease-in-out;
+    background-color: var(--clr-bg-sec);
+    transform-origin: center center;
+}
+
+img {
+    width: 6rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--clr-acc-main)
+}
+
+.btns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.button {
+    height: 3rem;
+    border: 1px solid var(--clr-bg-main);
+    min-width: 94px;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+}
+
+
+.button p {
+    transform: translateY(2rem);
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.button:hover p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.more:has(.active) p {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.more:has(.active) i {
+    transform: translateY(0) scale(1);
+}
+
+.button i {
+    transform: translateY(calc(1rem - 50%)) scale(1.3);
+    transition: .3s;
+}
+
+.button:hover i {
+    transform: translateY(0) scale(1);
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: calc(1rem + 100%);
+    top: -200%;
+    background-color: var(--clr-text-main);
+    color: #fff;
+    width: 5rem;
+    padding: .4rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform:  scaleX(.3);
+    transition: opacity .15s ease-in-out, transform .15s ease-in-out;
+    z-index: 2;
+}
+
+.more {
+    position: relative;
+}
+
+.dropdown-menu li {
+    padding: .5rem;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    overflow-x: hidden;
+    opacity: 0;
+    transition: opacity .2s ease-in-out .2s;
+}
+
+.dropdown-menu.active li {
+    opacity: 1
+}
+
+.dropdown-menu li:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-bg-pri);
+    position: absolute;
+    left: 110%;
+    border-radius: .3rem;
+    top:0;
+    transition: .2s;
+    z-index: -1;
+
+}
+
+.dropdown-menu li:hover:after {
+    background-color: var(--clr-bg-pri);
+    left: 0;
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    transform: translateY(0) scaleX(1);
+    width: min-content;
+    pointer-events: auto;
+}
+
+@media screen and (max-width: 650px) {
+    .container {
+        align-self: flex-start;
+        margin-top: 1rem;
+    }
+    
+    .dropdown-menu {
+        position: absolute;
+        left: -100%;
+        top: 200%;
+    }
+    
+}
